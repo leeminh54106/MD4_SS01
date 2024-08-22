@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Danh sach nhan vien</h1>
+<a href="/employee/add">Them moi nhan vien</a>
+<form action="/employee/search" method="post">
+    <input type="search" placeholder="search by name or department" name="search">
+    <input type="submit" th:value="'Search'">
+</form>
+<table border="10" cellspacing="10" cellpadding="10">
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Department</th>
+        <th>DOB</th>
+        <th>Status</th>
+        <th colspan="2">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="em,loop:${employees}">
+        <td th:text="${loop.count}"></td>
+        <td th:text="${em.fullName}"></td>
+        <td th:text="${em.email}"></td>
+        <td th:text="${em.address}"></td>
+        <td th:text="${em.departmentName}"></td>
+        <td th:text="${em.dateOfBirth}"></td>
+        <td th:text="${em.status}"></td>
+        <td><a th:href="|/employee/edit/${em.id}|">Edit</a></td>
+        <td><a th:href="|/employee/delete/${em.id}|">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

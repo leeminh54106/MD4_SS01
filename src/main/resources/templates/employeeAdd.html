@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Add Product</h1>
+<form action="/employee/add" method="post" th:object="${employee}">
+    <table border="1" cellpadding="10" cellspacing="5">
+        <tr>
+            <th><label>Employee Name</label></th>
+            <td><input type="text" th:field="*{fullName}"></td>
+        </tr>
+        <tr>
+            <th><label>Employee email</label></th>
+            <td><input type="email" th:field="*{email}"> </td>
+        </tr>
+        <tr>
+            <th><label>Employee address</label></th>
+            <td><input type="text" th:field="*{address}"> </td>
+        </tr>
+        <tr>
+            <th><label>Employee department</label></th>
+            <td><input type="text" th:field="*{departmentName}"> </td>
+        </tr>
+        <tr>
+            <th><label>Employee dob</label></th>
+            <td><input type="date" th:field="*{dateOfBirth}"> </td>
+        </tr>
+        <tr>
+            <th><label>Status</label></th>
+            <td>
+                <select th:field="*{status}">
+                    <option value="true">Active</option>
+                    <option value="false">Inactive</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" th:value="'Add'"></td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>

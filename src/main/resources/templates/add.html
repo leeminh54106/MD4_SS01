@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Add Product</h1>
+<form action="/products/add" method="post" th:object="${product}">
+    <table border="1" cellpadding="10" cellspacing="5">
+        <tr>
+            <th><label>Product Name</label></th>
+            <td><input type="text" th:field="*{name}">
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+            </td>
+        </tr>
+        <tr>
+            <th><label>Product Price</label></th>
+            <td><input type="number" th:field="*{price}"> </td>
+        </tr>
+        <tr>
+            <th><label>Product Stock</label></th>
+            <td><input type="text" th:field="*{stock}" min="0"> </td>
+        </tr>
+        <tr>
+            <th><label>Product Description</label></th>
+            <td><input type="text" th:field="*{description}"> </td>
+            <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" th:value="'Add'"></td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>
